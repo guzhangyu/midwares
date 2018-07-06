@@ -1,0 +1,10 @@
+/target/*
+target
+*.log
+.svn
+.DS_Store
+TOPDNSConfig
+*.iml
+/.idea/*
+bash.exe.stackdump
+logs/
