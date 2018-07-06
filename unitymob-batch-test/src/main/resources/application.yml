@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    data:
+      driverClassName: com.mysql.jdbc.Driver
+      type: POOLED
+      url: jdbc:mysql://localhost:3306/springcloud?useUnicode=true&useSSL=false&character_set_server=utf8mb4&rewriteBatchedStatements=true
+      username: root
+      password: root
+      max-idle: 10
+      max-wait: 10000
+      min-idle: 5
+      initial-size: 5
+      validation-query: SELECT 1
+      test-on-borrow: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 18800
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+
+

@@ -1,0 +1,14 @@
+开发原因：
+以自动生成mapper接口实现的方式来使用mybatis时，遇到批量操作的情况，如果没有spring这一层的代理，可以自己控制session的提交(addBatch+flush);
+但是spring现有的实现，在每次session执行之后自动commit（除非开启了事务）
+而我们的应用场景需要批量更新的方法使用方便、透明，在使用的时候不要写太多耦合到具体实现的辅助代码。
+
+实现思路：
+mybatis的executor的interceptor；通过spring-boot的支持自动加载该拦截器
+
+使用方法：
+引用该依赖，需要在真正使用的地方自己增加mybatis、spring-boot依赖。在需要用到批量方法的地方，在mapper接口方法上添加@Batch注解，参数使用List，
+mapper的xml文件里只需要写上单个语句的形式即可。
+
+优点：
+在使用mybatis-spring的基础上，实现了方便、无侵入的批量操作的开发
