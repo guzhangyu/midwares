@@ -32,6 +32,8 @@ public class BatchInterceptor implements Interceptor {
                 Method method = getMapperMethod(ms.getId());
                 if(method!=null){
                     if(method.getAnnotation(Batch.class)!=null){
+                        //spring的实现中session与executor绑定，在一个事务中只会有一次openSession
+                        // 此处如果有了batch，会有新的executor,但是仍是同一个事务，详见 DefaultSessionFactory的openSessionFromDataSource
                         Executor batchExecutor=ms.getConfiguration().newExecutor(executor.getTransaction(),ExecutorType.BATCH);
                         List list=(List)map.get("list");
                         for(Object o:list){

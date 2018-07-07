@@ -1,3 +1,4 @@
+import com.unitymob.TransactionTest;
 import com.unitymob.mapper.AMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +12,14 @@ import java.util.Arrays;
 @ComponentScan(basePackages = {"com.unitymob"})
 public class Application {
 
+
+
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext=SpringApplication.run(Application.class,args);
-        AMapper aMapper=applicationContext.getBean(AMapper.class);
-        aMapper.insert(Arrays.asList("a"));
+//        AMapper aMapper=applicationContext.getBean(AMapper.class);
+//        aMapper.insert("a");
+//        aMapper.insert("a");
+        TransactionTest transactionTest=applicationContext.getBean(TransactionTest.class);
+        transactionTest.test();
     }
 }
