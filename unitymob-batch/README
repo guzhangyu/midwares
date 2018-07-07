@@ -11,4 +11,4 @@ mybatis的executor的interceptor；通过spring-boot的支持自动加载该拦�
 mapper的xml文件里只需要写上单个语句的形式即可。
 
 优点：
-在使用mybatis-spring的基础上，实现了方便、无侵入的批量操作的开发
+在使用mybatis-spring的基础上，实现了方便、无侵入的批量操作的开发；经测试对于spring的数据库事务实现没有影响
